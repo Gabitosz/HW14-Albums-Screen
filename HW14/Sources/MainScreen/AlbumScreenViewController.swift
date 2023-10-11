@@ -8,12 +8,24 @@
 import UIKit
 
 class AlbumScreenViewController: UIViewController {
-
+    
+    // MARK: Outlets
+    
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        setupView()
     }
-
-
+    
+    // MARK: Setup
+    
+    private func setupView() {
+        view.backgroundColor = .systemBackground
+        navigationItem.title = "Albums"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+    }
+    
 }
 
