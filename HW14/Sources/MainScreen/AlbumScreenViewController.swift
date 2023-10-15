@@ -176,6 +176,23 @@ extension AlbumScreenViewController: UICollectionViewDataSource {
             albumTitle.text = album[indexPath.row].title
             cell.contentView.addSubview(albumTitle)
             
+            if album[indexPath.row].title == "Избранное" {
+                let imageView = UIImageView()
+                imageView.tintColor = .white
+                imageView.image = UIImage(systemName: "heart.fill")
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                cell.contentView.addSubview(imageView)
+                NSLayoutConstraint.activate([
+                    imageView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -5),
+                    imageView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 5),
+                    imageView.widthAnchor.constraint(equalToConstant: 20),
+                    imageView.heightAnchor.constraint(equalToConstant: 20)
+                ])
+            
+                
+                
+            }
+            
             let numberOfPhotos = UILabel(frame: CGRect(x: 2, y: 190, width: cell.bounds.size.width, height: 30))
             numberOfPhotos.text = album[indexPath.row].countOfPhotos?.description
             numberOfPhotos.textColor = .gray
