@@ -33,6 +33,13 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private let separatorView: UIView = {
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = .lightGray
+        return separator
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -49,6 +56,8 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
         addSubview(albumPhotoView)
         addSubview(albumTitle)
         addSubview(numberOfPhotos)
+        addSubview(separatorView)
+        
     }
     
     func configureCell(imageName: String) {
