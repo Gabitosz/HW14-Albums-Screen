@@ -5,56 +5,53 @@
 //  Created by Gabriel Zdravkovici on 14.10.2023.
 //
 
+import UIKit
 
-struct PhotoSource {
+struct DataSource {
     
-    static let myAlbumsSection: [Photo] = [
-        .init(id: 1, imageName: "photo1"),
-        .init(id: 2, imageName: "photo2"),
-        .init(id: 3, imageName: "photo3"),
-        .init(id: 4, imageName: "photo4"),
-        .init(id: 5, imageName: "photo5"),
-        .init(id: 6, imageName: "photo6"),
-        .init(id: 7, imageName: "photo7"),
-        .init(id: 8, imageName: "photo8"),
-        .init(id: 9, imageName: "photo9"),
-        .init(id: 10, imageName: "photo10"),
-    ]
+    static let shared = DataSource()
     
-    static let sharedAlbumsSection: [Photo] = [
-        .init(id: 1, imageName: "photo1"),
-        .init(id: 2, imageName: "photo2"),
-        .init(id: 3, imageName: "photo3"),
-        .init(id: 4, imageName: "photo4"),
-        .init(id: 5, imageName: "photo5"),
-        .init(id: 6, imageName: "photo6"),
-        .init(id: 7, imageName: "photo7"),
-        .init(id: 8, imageName: "photo8"),
-        .init(id: 9, imageName: "photo9"),
-        .init(id: 10, imageName: "photo10"),
+    private let myAlbums: SectionList = {
+        .myAlbums([
+            .init(title: "Недавние", image: "photo1", countOfPhotos: 14.154),
+            .init(title: "Избранное", image: "photo2", countOfPhotos: 0),
+            .init(title: "Instagram", image: "photo3", countOfPhotos: 0),
+            .init(title: "Snapchat", image: "photo4", countOfPhotos: 0),
+            .init(title: "WhatsApp", image: "photo5", countOfPhotos: 0),
+        ])
+    }()
     
-    ]
+    private let sharedAlbums: SectionList = {
+        .sharedAlbums([
+            .init(title: "Shared1", image: "photo6", countOfPhotos: nil),
+            .init(title: "Shared2", image: "photo7", countOfPhotos: nil),
+            .init(title: "Shared3", image: "photo8", countOfPhotos: nil),
+            .init(title: "Shared4", image: "photo9", countOfPhotos: nil),
+        ])
+    }()
     
+//    private let mediaTypes: SectionList = {
+//        .mediaTypes([
+//            CategoryItem(label: "Авиарежим", accessoryLabel: "0", iconImageView: UIImage(systemName: "airplane"), iconContainer: UIColor(red: 240 / 255, green: 154 / 255, blue: 54 / 255, alpha: 1)),
+//                        
+//                         ]
+//            )
+//    }()
     
-    static func allPhotos(section: String) -> [Photo] {
-        switch section {
-        case "My Albums":
-            return myAlbumsSection
-        case "Shared Albums":
-            return sharedAlbumsSection
-        default:
-            return []
-        }
+    var data: [SectionList] {
+        [myAlbums, sharedAlbums]
     }
     
-}
-
-struct Photo {
-    let id: Int
-    let imageName: String
-}
-
-struct AlbumSectionPhotos {
-    let sectionName: String
-    var photos: [Photo]
+    
+    
+    
+    struct Photo {
+        let id: Int
+        let imageName: String
+    }
+    
+    struct AlbumSectionPhotos {
+        let sectionName: String
+        var photos: [Photo]
+    }
 }
