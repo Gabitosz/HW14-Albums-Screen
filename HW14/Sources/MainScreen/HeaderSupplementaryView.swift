@@ -17,10 +17,26 @@ class HeaderSupplementaryView: UICollectionReusableView {
         return label
     }()
     
+    private lazy var seeAllButton: UIButton = {
+        let seeAllButton = UIButton()
+        seeAllButton.titleLabel?.textAlignment = .center
+        seeAllButton.translatesAutoresizingMaskIntoConstraints = false
+        seeAllButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        seeAllButton.setTitleColor(.systemBlue, for: .normal)
+        seeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+        return seeAllButton
+    }()
+    
+    @objc func seeAllButtonTapped() {
+        print("All button tapped")
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         addSubview(headerLabel)
+        addSubview(seeAllButton)
+        
         setupConstraints()
     }
     
@@ -30,13 +46,18 @@ class HeaderSupplementaryView: UICollectionReusableView {
     
     func configureHeader(sectionName: String) {
         headerLabel.text = sectionName
+        seeAllButton.setTitle("Все", for: .normal)
+        
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
 
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            seeAllButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+        
         
         
         ])
