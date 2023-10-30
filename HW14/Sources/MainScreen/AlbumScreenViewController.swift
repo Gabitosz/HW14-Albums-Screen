@@ -112,13 +112,13 @@ extension AlbumScreenViewController {
         }
     }
     
-    private func createLayoutSection(group: NSCollectionLayoutGroup, behaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior, interGroupSpacing: CGFloat, supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] ) -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = behaviour
-        section.interGroupSpacing = interGroupSpacing
-        section.boundarySupplementaryItems = supplementaryItems
-        return section
-    }
+//    private func createLayoutSection(group: NSCollectionLayoutGroup, behaviour: UICollectionLayoutSectionOrthogonalScrollingBehavior, interGroupSpacing: CGFloat, supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem] ) -> NSCollectionLayoutSection {
+//        let section = NSCollectionLayoutSection(group: group)
+//        section.orthogonalScrollingBehavior = behaviour
+//        section.interGroupSpacing = interGroupSpacing
+//        section.boundarySupplementaryItems = supplementaryItems
+//        return section
+//    }
     
     private func createAlbumsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -170,13 +170,14 @@ extension AlbumScreenViewController {
         layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10)
         
         let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-        sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 5)
+        sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 40, trailing: 5)
         sectionLayout.orthogonalScrollingBehavior = .groupPaging
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(10))
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(30))
         
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         
         sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
         return sectionLayout
     }
     
@@ -195,7 +196,7 @@ extension AlbumScreenViewController {
         let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
         sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 17, trailing: 17)
         
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(50))
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(60))
         
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         
