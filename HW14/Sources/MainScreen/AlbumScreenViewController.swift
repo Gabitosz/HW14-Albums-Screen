@@ -21,9 +21,6 @@ class AlbumScreenViewController: UIViewController {
     
     private let sections = DataSource.shared.data
     
-    //  let photos: [Photo] = PhotoSource.allPhotos()
-    
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -37,11 +34,15 @@ class AlbumScreenViewController: UIViewController {
     
     // MARK: Setup
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = "Альбомы"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Albums"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         view.addSubview(collectionView)
         
         collectionView.register(AlbumsCollectionViewCell.self, forCellWithReuseIdentifier: "MyAlbumsCollectionViewCell")
