@@ -27,6 +27,7 @@ class HeaderSupplementaryView: UICollectionReusableView {
         return seeAllButton
     }()
     
+    
     @objc func seeAllButtonTapped() {
         print("All button tapped")
     }
@@ -44,22 +45,25 @@ class HeaderSupplementaryView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func hideSeeAllButton() {
+        seeAllButton.isHidden = true
+    }
+    
+    func showSeeAllButton() {
+        seeAllButton.isHidden = false
+    }
+    
     func configureHeader(sectionName: String) {
         headerLabel.text = sectionName
         seeAllButton.setTitle("Все", for: .normal)
-        
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             seeAllButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-        
-        
-        
         ])
     }
 }
