@@ -10,5 +10,5 @@ import Foundation
 struct PhotoItem {
     let title: String
     let image: String
-    let countOfPhotos: Double?
+    let countOfPhotos: String?
 }
