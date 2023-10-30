@@ -19,6 +19,8 @@
 		03205CA12ADB27C7006C8983 /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205CA02ADB27C7006C8983 /* AlbumsCollectionViewCell.swift */; };
 		03205CA32ADB3088006C8983 /* HeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205CA22ADB3088006C8983 /* HeaderSupplementaryView.swift */; };
 		03F5061D2AEC515900A6638E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5061C2AEC515900A6638E /* CategoryItem.swift */; };
+		03F506212AF05C0600A6638E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F506202AF05C0600A6638E /* TabBarController.swift */; };
+		03F506232AF05DBF00A6638E /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F506222AF05DBF00A6638E /* AnotherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		03205CA02ADB27C7006C8983 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
 		03205CA22ADB3088006C8983 /* HeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		03F5061C2AEC515900A6638E /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		03F506202AF05C0600A6638E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		03F506222AF05DBF00A6638E /* AnotherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				03205CA02ADB27C7006C8983 /* AlbumsCollectionViewCell.swift */,
 				03205CA22ADB3088006C8983 /* HeaderSupplementaryView.swift */,
 				03F5061C2AEC515900A6638E /* CategoryItem.swift */,
+				03F506202AF05C0600A6638E /* TabBarController.swift */,
+				03F506222AF05DBF00A6638E /* AnotherViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -189,6 +195,8 @@
 			files = (
 				03205C812AD71647006C8983 /* AlbumScreenViewController.swift in Sources */,
 				03205C9B2ADB15BB006C8983 /* PhotoItem.swift in Sources */,
+				03F506232AF05DBF00A6638E /* AnotherViewController.swift in Sources */,
+				03F506212AF05C0600A6638E /* TabBarController.swift in Sources */,
 				03205C9F2ADB1749006C8983 /* CategoryItemCell.swift in Sources */,
 				03205C7D2AD71647006C8983 /* AppDelegate.swift in Sources */,
 				03205CA12ADB27C7006C8983 /* AlbumsCollectionViewCell.swift in Sources */,
