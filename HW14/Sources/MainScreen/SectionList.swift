@@ -10,8 +10,8 @@ import Foundation
 enum SectionList {
     case myAlbums([PhotoItem])
     case sharedAlbums([PhotoItem])
-    //    case mediaTypes([CategoryItem])
-    //    case utilities([CategoryItem])
+    case mediaTypes([CategoryItem])
+    case utilities([CategoryItem])
     
     // попробовать сделать тоже самое с списком
     var photoItems: [PhotoItem] {
@@ -19,34 +19,35 @@ enum SectionList {
         case .myAlbums(let photoItems),
                 .sharedAlbums(let photoItems):
             return photoItems
+        default : return []
+        }
+    }
+    var categoryItems: [CategoryItem] {
+        switch self {
+        case .mediaTypes(let mediaItems):
+            return mediaItems
+        case .utilities(let utilitiesItems):
+            return utilitiesItems
+        default: return []
         }
     }
     
-    //    var categoryItems: [CategoryItem] {
-    //        switch self {
-    //        case .mediaTypes(let categoryItems),
-    //                .utilities(let categoryItems):
-    //            return categoryItems
-    //        default: return []
-    //        }
-    //    }
-    
     var countOfSections: Int {
-        let totalCount = photoItems.count //+ categoryItems.count
+        let totalCount = photoItems.count + categoryItems.count
         return totalCount
     }
     
     var title: String {
         switch self {
         case .myAlbums(_):
-            return "My Albums"
+            return "Мои Альбомы"
         case .sharedAlbums(_):
-            return "Shared Albums"
-            //        case .mediaTypes(_):
-            //            return "Media Types"
-            //        case .utilities(_):
-            //            return "Utilities"
-            //        }
+            return "Общие Альбомы"
+        case .mediaTypes(_):
+            return "Типы медиафайлов"
+        case .utilities(_):
+            return "Другое"
         }
     }
 }
+
