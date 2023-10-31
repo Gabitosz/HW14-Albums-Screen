@@ -27,17 +27,14 @@ class HeaderSupplementaryView: UICollectionReusableView {
         return seeAllButton
     }()
     
-    
     @objc func seeAllButtonTapped() {
         print("All button tapped")
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
         addSubview(headerLabel)
         addSubview(seeAllButton)
-        
         setupConstraints()
     }
     

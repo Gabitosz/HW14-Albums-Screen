@@ -13,7 +13,6 @@ enum SectionList {
     case mediaTypes([CategoryItem])
     case utilities([CategoryItem])
     
-    // попробовать сделать тоже самое с списком
     var photoItems: [PhotoItem] {
         switch self {
         case .myAlbums(let photoItems),
@@ -22,6 +21,7 @@ enum SectionList {
         default : return []
         }
     }
+    
     var categoryItems: [CategoryItem] {
         switch self {
         case .mediaTypes(let mediaItems):

@@ -52,16 +52,12 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
     
     func setupView() {
         clipsToBounds = false
-        addSubview(albumPhotoView)
-        addSubview(albumTitle)
-        addSubview(numberOfPhotos)
-        addSubview(separatorView)
-        
+        let views = [albumPhotoView, albumTitle, numberOfPhotos, separatorView]
+        views.forEach { addSubview($0) }
     }
     
     func configureCell(imageName: String) {
         albumPhotoView.image = UIImage(named: imageName)
-       
     }
     
     func setConstraints() {
@@ -70,12 +66,8 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
             albumPhotoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             albumPhotoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             albumPhotoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            
-            
             albumTitle.topAnchor.constraint(equalTo: albumPhotoView.bottomAnchor, constant: 150),
-            
             numberOfPhotos.topAnchor.constraint(equalTo: albumTitle.bottomAnchor, constant: 10),
-        
         ])
     }
 }

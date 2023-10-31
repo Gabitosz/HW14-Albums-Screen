@@ -27,7 +27,6 @@ struct DataSource {
             .init(title: "Shared2", image: "photo7", countOfPhotos: nil),
             .init(title: "Shared3", image: "photo8", countOfPhotos: nil),
             .init(title: "Shared4", image: "photo9", countOfPhotos: nil),
-            
         ])
     }()
     
@@ -43,8 +42,7 @@ struct DataSource {
             CategoryItem(title: "Снимки экрана", image: "camera.viewfinder", numberOfElements: "441"),
             CategoryItem(title: "Записи экрана", image: "record.circle", numberOfElements: "221"),
             CategoryItem(title: "Анимированные", image: "square.stack.3d.forward.dottedline.fill", numberOfElements: "2,123"),
-                    ]
-        )
+        ])
     }()
     
     private let utilitiesTypes: SectionList = {
@@ -53,19 +51,10 @@ struct DataSource {
             CategoryItem(title: "Дубликаты", image: "square.on.square", numberOfElements: "104"),
             CategoryItem(title: "Скрытые", image: "eye.slash", numberOfElements: "452"),
             CategoryItem(title: "Недавно удаленные", image: "trash", numberOfElements: "142"),
-                    ])
+        ])
     }()
     
     var data: [SectionList] {
         [myAlbums, sharedAlbums, mediaTypes, utilitiesTypes]
-    }
-    struct Photo {
-        let id: Int
-        let imageName: String
-    }
-    
-    struct AlbumSectionPhotos {
-        let sectionName: String
-        var photos: [Photo]
     }
 }

@@ -43,13 +43,20 @@ class CategoryItemCell: UICollectionViewCell {
         return separator
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+        setupView()
+        setupSeparator()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setupView() {
-        addSubview(label)
-        addSubview(numberOfElements)
-        addSubview(iconImageView)
-        addSubview(accessoryImageView)
-        addSubview(separatorView)
-        
+        let views = [label, numberOfElements, iconImageView, accessoryImageView, separatorView]
+        views.forEach{ addSubview($0) }
     }
     
     func setupLayout() {
@@ -60,29 +67,17 @@ class CategoryItemCell: UICollectionViewCell {
         iconImageView.tintColor = .systemBlue
         accessoryImageView.frame = CGRect(x: 340, y: 8, width: 15, height: 15)
         label.frame = CGRect(x: 20 + iconImageView.frame.size.width, y: -2, width: contentView.frame.width - 20 - iconImageView.frame.size.width, height: contentView.frame.size.height)
-        numberOfElements.frame = CGRect(x: 115 + iconImageView.frame.size.width, y: 0, width: contentView.frame.width - 5 - iconImageView.frame.size.width, height: contentView.frame.size.height)
+        numberOfElements.frame = CGRect(x: 120 + iconImageView.frame.size.width, y: 0, width: contentView.frame.width - 5 - iconImageView.frame.size.width, height: contentView.frame.size.height)
     }
     
-    func setup() {
+    func setupSeparator() {
         NSLayoutConstraint.activate([
             separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 47),
             separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: 35),
             separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             separatorView.heightAnchor.constraint(equalToConstant: 0.5),
             separatorView.widthAnchor.constraint(equalToConstant: 320),
-            
         ])
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupLayout()
-        setupView()
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func configureCell(labelName: String, numberElements: String, image: String) {
