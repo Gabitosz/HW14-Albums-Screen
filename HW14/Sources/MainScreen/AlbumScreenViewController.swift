@@ -19,6 +19,13 @@ class AlbumScreenViewController: UIViewController {
         return collectionView
     }()
     
+    private let separatorView: UIView = {
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = .blue
+        return separator
+    }()
+    
     private let sections = DataSource.shared.data
     
     // MARK: Lifecycle
@@ -41,9 +48,12 @@ class AlbumScreenViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     }
     
+    
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
+        view.addSubview(separatorView)
         
         collectionView.register(AlbumsCollectionViewCell.self, forCellWithReuseIdentifier: "MyAlbumsCollectionViewCell")
         collectionView.register(AlbumsCollectionViewCell.self, forCellWithReuseIdentifier: "SharedAlbumsCollectionViewCell")
@@ -110,6 +120,7 @@ extension AlbumScreenViewController {
             case .utilities(_):
                 return createUtilitiesTypesSection()
             }
+            
         }
     }
     
@@ -265,10 +276,11 @@ extension AlbumScreenViewController: UICollectionViewDataSource {
             else {
                 return UICollectionViewCell()
             }
-            // ???
+
             for subview in cell.contentView.subviews {
                 subview.removeFromSuperview()
             }
+                    
             cell.configureCell(imageName: album[indexPath.row].image)
             let albumTitle = UILabel(frame: CGRect(x: 0, y: 180, width: cell.bounds.size.width, height: 30))
             albumTitle.text = album[indexPath.row].title
@@ -287,7 +299,6 @@ extension AlbumScreenViewController: UICollectionViewDataSource {
                     imageView.heightAnchor.constraint(equalToConstant: 20)
                 ])
             } else {
-                // Уберите иконку "Избранное" из ячейки, если это не "Избранное"
                 for subview in view.subviews {
                     if let imageView = subview as? UIImageView {
                         imageView.removeFromSuperview()
@@ -329,6 +340,7 @@ extension AlbumScreenViewController: UICollectionViewDataSource {
                                numberElements: mediaTypes[indexPath.row].numberOfElements,
                                image: mediaTypes[indexPath.row].image)
 //            
+            
 //            let mediaTypesTitle = UILabel(frame: CGRect(x: 130, y: 50, width: cell.bounds.size.width, height: 50))
 //            mediaTypesTitle.text = mediaTypes[indexPath.row].title
 //            cell.contentView.addSubview(mediaTypesTitle)
@@ -378,6 +390,12 @@ extension AlbumScreenViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 7),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            
+            separatorView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: 10),
+            separatorView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor,constant: 10),
+            separatorView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: -20),
+            separatorView.heightAnchor.constraint(equalToConstant: 2),
+            separatorView.widthAnchor.constraint(equalToConstant: 320),
         ])
     }
 }

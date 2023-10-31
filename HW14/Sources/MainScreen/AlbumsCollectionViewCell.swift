@@ -52,7 +52,6 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
     
     func setupView() {
         clipsToBounds = false
-//        layer.cornerRadius = 16
         addSubview(albumPhotoView)
         addSubview(albumTitle)
         addSubview(numberOfPhotos)

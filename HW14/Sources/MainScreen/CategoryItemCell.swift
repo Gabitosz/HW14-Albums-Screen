@@ -36,11 +36,19 @@ class CategoryItemCell: UICollectionViewCell {
         return imageView
     }()
     
+    private let separatorView: UIView = {
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = .lightGray
+        return separator
+    }()
+    
     func setupView() {
         addSubview(label)
         addSubview(numberOfElements)
         addSubview(iconImageView)
         addSubview(accessoryImageView)
+        addSubview(separatorView)
         
     }
     
@@ -55,10 +63,22 @@ class CategoryItemCell: UICollectionViewCell {
         numberOfElements.frame = CGRect(x: 115 + iconImageView.frame.size.width, y: 0, width: contentView.frame.width - 5 - iconImageView.frame.size.width, height: contentView.frame.size.height)
     }
     
+    func setup() {
+        NSLayoutConstraint.activate([
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 47),
+            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: 35),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            separatorView.heightAnchor.constraint(equalToConstant: 0.5),
+            separatorView.widthAnchor.constraint(equalToConstant: 320),
+            
+        ])
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
         setupView()
+        setup()
     }
     
     required init?(coder: NSCoder) {
